@@ -3,7 +3,7 @@ import json
 
 
 prompt_data = """
-  Act as Shakespeare and write a poem on Machine Learning
+  I am Groot.
 """
 
 bedrock = boto3.client(service_name= "bedrock-runtime")
@@ -39,9 +39,9 @@ print(response_text)
 # This is a text to embedding model from Amazon 
 
 ''' 
-Text as input:  Act as Shakespeare and write a poem on Machine Learning
+Text as input: I am Groot.
 
-Embedding as output: [-0.12780310213565826, 0.08587569743394852, 0.06469380110502243, ..... ]
+Embedding as output: [-0.23950695991516113, 0.03579961508512497, 0.0456492081284523, 0.021612146869301796, ..... ]
 
 '''
 
