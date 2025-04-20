@@ -79,6 +79,36 @@ I realized the issue was simply that I forgot to initialize Git. 😅
 git remote -v
 ```
 
+## **Another blunder:**
+I already had a main branch with gitignore file etc, in my terminal i accidently push it to a non-existing branch master, leading to its creation. now I dont want that. 
+
+### **I want to undo it**
+
+We can do that using `git revert`
+
+  Using `git revert` will create a new commit that undoes the changes made in the previous commit.
+
+  you just need to pass the old commit's hashcode to `git revert` command. you can get the hashcode using `git log` command. or previous push log eg: `4b0f231`. 
+  
+### **Now the commit it reverted, but what about the branch?**
+  You need to delete the branch, cause it will create trouble in the future.
+
+  Just use `git push origin --delete <branch-name>` to delete the branch from remote repository.
+
+### **Issue Still Exists**
+
+Once i have deleted it, I tried pushing it to the `main` branch but I got this `fatal: refusing to merge unrelated histories` 
+
+This happens when the local repository and remote repository have different histories, often when the repository was initialized separately. Due to creation of two branches and pushes to the new branch, the old one became outdated. 
+
+So we `git fetch origin main` to update the local repository with the latest changes from the remote repository. Then we can use `git rebase origin/main` to rebase our local branch onto the remote branch. 
+
+Then i got this `Successfully rebased and updated refs/heads/main` 
+
+The issue is now resolved. I can push my changes to the remote repository using cmd `git push origin main`
+
+This worked for me!!!... I hope it works for you too!!!
+
 ## 3. Install Required Packages following essential packages are used:
 - boto3 – AWS SDK for Python, enabling interaction with AWS services like S3 and EC2.
 - awscli – AWS Command Line Interface, allowing users to interact with AWS via command-line.
