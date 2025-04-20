@@ -194,7 +194,19 @@ You will be prompted to enter the following details:
 1. AWS Access Key ID – Your unique Access Key ID.
 2. AWS Secret Access Key – The corresponding Secret Access Key.
 3. Default region name – Specify your AWS region (e.g., us-east-1, ap-south-1).
-4. Default output format – Leave it blank or specify format (e.g., json, table, text).
+4. Default output format – Leave it blank or specify format (e.g., json, table, text), default format is json.
+
+
+## 6. Running the Script
+
+This experiment utilizes the **Amazon Titan Text-to-Embedding model** (`amazon.titan-embed-text-v2:0`) to explore how we can interact with **LLM models via APIs** using AWS services. By integrating Bedrock's capabilities into our workflow, we can seamlessly process text embeddings and incorporate them into various applications.
+
+Through this implementation, we demonstrate how AI-powered solutions can be efficiently leveraged to enhance **natural language understanding**, improve **search relevance**, and streamline **application integration** with AWS Bedrock.
+
+To execute the script, simply run:
+```bash
+python file_name.py
+```
 
 
 
