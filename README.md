@@ -21,42 +21,9 @@ For Windows users, activate the virtual environment using:
 python -m venv venv
 cd venv/Scripts
 activate.ps1  # For PowerShell users
-``` 
-## 2. Creating a Git Repository
-Create a new repository on GitHub or any other platform of your choice.
-
-  #### Errors I faced during repo creation due to previous git initializations
-  ```(venv) PS D:\AWS\Bedrock> git remote add origin https://github.com/Vishnuprasadvbhat/aws-bedrock.git                        
-  fatal: detected dubious ownership in repository at 'D:/'
-  'D:/' is owned by:
-          'S-1-5-18'
-  but the current user is:
-          'S-1-5-21-520853544-919835508-2353064755-1001'
-  To add an exception for this directory, call:
-
-          git config --global --add safe.directory D:/
-  ```
-#### Solution By Git 
-
-  `git config --global --add safe.directory D:/`
+```
 
 ### Initializing Git Repository
-
-#### **Reason:** 
-I realized the issue was simply that I forgot to initialize Git. 😅 
-
-#### **Steps Taken**
-1. **Initialize Git** in the project directory:
-   ```bash
-   git init
-
-Here’s your updated documentation snippet with the Git initialization step:
-### Initializing Git Repository
-
-#### **Reason:** 
-I realized the issue was simply that I forgot to initialize Git. 😅 
-
-#### **Steps Taken**
 
 1. **Initialize Git** in the project directory:
   ``` bash
@@ -80,7 +47,7 @@ git remote -v
 ```
 
 ## **Another blunder:**
-I already had a main branch with gitignore file etc, in my terminal i accidently push it to a non-existing branch master, leading to its creation. now I dont want that. 
+I already had a main branch with a gitignore file, etc., in my terminal, I accidently push it to a non-existing branch master, leading to its creation. Now I don't want that. 
 
 ### **I want to undo it**
 
@@ -88,16 +55,16 @@ We can do that using `git revert`
 
   Using `git revert` will create a new commit that undoes the changes made in the previous commit.
 
-  you just need to pass the old commit's hashcode to `git revert` command. you can get the hashcode using `git log` command. or previous push log eg: `4b0f231`. 
+  You just need to pass the old commit's hash code to `git revert` command. You can get the hash code using `git log` command. or previous push log eg: `4b0f231`. 
   
-### **Now the commit it reverted, but what about the branch?**
+### **Now the commit has been reverted, but what about the branch?**
   You need to delete the branch, cause it will create trouble in the future.
 
-  Just use `git push origin --delete <branch-name>` to delete the branch from remote repository.
+  Just use `git push origin --delete <branch-name>` to delete the branch from the remote repository.
 
 ### **Issue Still Exists**
 
-Once i have deleted it, I tried pushing it to the `main` branch but I got this `fatal: refusing to merge unrelated histories` 
+Once I have deleted it, I tried pushing it to the `main` branch, but I got this `fatal: refusing to merge unrelated histories` 
 
 This happens when the local repository and remote repository have different histories, often when the repository was initialized separately. Due to creation of two branches and pushes to the new branch, the old one became outdated. 
 
